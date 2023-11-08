@@ -1,6 +1,6 @@
 <?php
 
-use CRM_Team_ExtensionUtil as E;
+use CRM_MailingTeam_ExtensionUtil as E;
 use Civi\Test\HeadlessInterface;
 use Civi\Test\HookInterface;
 use Civi\Test\TransactionalInterface;

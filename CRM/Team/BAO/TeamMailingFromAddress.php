@@ -28,8 +28,8 @@ class CRM_Team_BAO_TeamMailingFromAddress extends CRM_Team_DAO_TeamMailingFromAd
     return $instance;
   }
 
-  public function addSelectWhereClause() {
-    $clauses = parent::addSelectWhereClause();
+  public function addSelectWhereClause(string $entityName = NULL, int $userId = NULL, array $conditions = []): array {
+    $clauses = parent::addSelectWhereClause($entityName, $userId, $conditions);
     $contact_id = CRM_Core_Session::getLoggedInContactID();
     $clauses['team_id'][] = 'IN (SELECT team_id FROM civicrm_team_contact WHERE contact_id = ' . $contact_id . ')';
 

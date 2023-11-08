@@ -27,9 +27,9 @@ class CRM_MailingTeam_APIWrapper implements API_Wrapper {
     }
 
     elseif($apiRequest['entity'] == 'OptionValue') {
-      self::$option_value_id = self::$option_value_id['head'];
+      self::$option_value_id = self::$option_value_id['head'] ?? NULL;
 
-      if(_mailingteams_fea_id($apiRequest['params']['option_group_id'])) {
+      if(array_key_exists('option_group_id', $apiRequest['params']) && _mailingteams_fea_id($apiRequest['params']['option_group_id'])) {
         $result['values'] = array_filter(
           $result['values'], function($v){
             return CRM_Team_BAO_Team::checkPermissions('from_email_address', $v['value']);
