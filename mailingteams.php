@@ -43,15 +43,17 @@ function mailingteams_civicrm_enable() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_entityTypes
  */
-function mailingteams_civicrm_entityTypes(&$entityTypes) {
-  $entityFiles = CRM_Utils_File::findFiles(__DIR__, '*.entityType.php');
-  foreach ($entityFiles as $file) {
-    $et = include $file;
-    foreach ($et as $e) {
-      $entityTypes[$e['class']] = $e;
-    }
-  }
-}
+
+// function mailingteams_civicrm_entityTypes(&$entityTypes) {
+//   $entityFiles = CRM_Utils_File::findFiles(__DIR__, '*.entityType.php');
+//   foreach ($entityFiles as $file) {
+//     $et = include $file;
+//     foreach ($et as $e) {
+//       $entityTypes[$e['class']] = $e;
+//     }
+//   }
+// }
+
 
 /**
  * Implements hook_civicrm_preProcess().
